@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b6980966944754e96a9df085f8e515, type: 3}
+  m_Name: JetPlaneStats
+  m_EditorClassIdentifier: 
+  _defaultSpeed: 400
+  _acceleration: 680
+  _rotateSpeed: 5
+  _rotationalAngle: 45
+  _speed: 800
+  _maxSpeed: 1000
