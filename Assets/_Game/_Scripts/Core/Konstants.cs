@@ -9,6 +9,8 @@ public class Konstants
     public const string SPEED_BOOST_TAG = "SpeedBoost";
     public const string MAGNET_POWERUP_TAG = "Magnet";
 
-
+    //Scenes:
+    public const string INIT_SCENE = "InitScene";
+    public const string MAIN_SCENE = "MainScene";
 
 }
