@@ -275,6 +275,7 @@ MonoBehaviour:
       Value: {fileID: 7531300728474677335, guid: 230d862406f3c294fa905edd8b9c692e, type: 3}
     - Key: 3
       Value: {fileID: 7838605193298355136, guid: f63b353fdc2e3aa44847498430a058b3, type: 3}
+  _uiParent: {fileID: 733937060}
   _loadingScreenCanvas: {fileID: 880419345}
   _darkOverlay: {fileID: 880419347}
 --- !u!1 &733937059

@@ -2912,7 +2912,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4725244142855176075}
+  - {fileID: 4348600666119239492}
   - {fileID: 4286332021171335083}
   - {fileID: 4720879398486959232}
   m_Father: {fileID: 6326998446334200141}
@@ -2931,7 +2931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinsSplinePrefabs:
-  - {fileID: 7230421552656659883}
+  - {fileID: 1845837928003894628}
   - {fileID: 6204903078904745748}
   - {fileID: 2864256624744611883}
   _offsetDistanceToThePlayer: 20
@@ -3107,14 +3107,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd9a66411edc17047af3fbf7dfdcab9f, type: 3}
---- !u!4 &4725244142855176075 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1854086365268164583, guid: cd9a66411edc17047af3fbf7dfdcab9f, type: 3}
-  m_PrefabInstance: {fileID: 2729846569169078435}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7230421552656659883 stripped
+--- !u!1 &1845837928003894628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4359457145267762631, guid: cd9a66411edc17047af3fbf7dfdcab9f, type: 3}
+  m_PrefabInstance: {fileID: 2729846569169078435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4348600666119239492 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1854086365268164583, guid: cd9a66411edc17047af3fbf7dfdcab9f, type: 3}
   m_PrefabInstance: {fileID: 2729846569169078435}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6352460568235114604

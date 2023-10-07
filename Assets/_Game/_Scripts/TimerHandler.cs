@@ -27,6 +27,7 @@ public class TimerHandler : MonoBehaviour
     #endregion Unity Methods
 
     #region Public Methods
+    public int _GetTotatlElapsedTime() => _timerCounter;
     #endregion Public Methods
 
     #region Private Methods

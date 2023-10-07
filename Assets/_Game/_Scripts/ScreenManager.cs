@@ -18,6 +18,7 @@ namespace PlaneDodge.ScreenManagement
         [SerializeField] private SerializedDictionary<Window, GameObject> _screens;
 
         [SerializeField] private Dictionary<Window, GameObject> _dynamicScreens = new Dictionary<Window, GameObject>();
+        [SerializeField] private Transform _uiParent;
         [SerializeField] private GameObject _loadingScreenCanvas;
         [SerializeField] private Image _darkOverlay;
         private Stack<Window> _screenStack = new Stack<Window>();
@@ -36,7 +37,7 @@ namespace PlaneDodge.ScreenManagement
 
         #region Public Methods
 
-        public GameObject ChangeScreen(Window window, ScreenType screenType = ScreenType.Replace)
+        public GameObject ChangeScreen(Window window, ScreenType screenType = ScreenType.Replace, bool isUiObject = false)
         {
             //if (_currentScreen == window) { return null; }
             if (!_screens.ContainsKey(window)) return null;
@@ -45,7 +46,7 @@ namespace PlaneDodge.ScreenManagement
                 CloseAllScreens();
             }
             GameObject screen = _screens[window];
-            GameObject spawnedScreen = Instantiate(screen, transform);
+            GameObject spawnedScreen = Instantiate(screen, isUiObject ? _uiParent : transform);
             spawnedScreen.transform.SetAsLastSibling();
             if (!_dynamicScreens.ContainsKey(window))
             {
@@ -82,12 +83,12 @@ namespace PlaneDodge.ScreenManagement
             _screenStack.Clear();
         }
 
-        public void ChangeScreenWithBlinkEffect(Window window, ScreenType screenType = ScreenType.Replace)
+        public void ChangeScreenWithBlinkEffect(Window window, ScreenType screenType = ScreenType.Replace, bool isUiObj = false)
         {
             _loadingScreenCanvas.SetActive(true);
             _darkOverlay.DOFade(1, .35f).onComplete += () =>
             {
-                ChangeScreen(window, screenType);
+                ChangeScreen(window, screenType, isUiObj);
                 _darkOverlay.DOFade(0, .35f).onComplete += () =>
                 {
                     _loadingScreenCanvas.SetActive(false);
