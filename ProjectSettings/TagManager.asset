@@ -8,11 +8,12 @@ TagManager:
   - Magnet
   - SpeedBoost
   - Coin
+  - Shield
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Coin
   - Water
   - UI
   - 
