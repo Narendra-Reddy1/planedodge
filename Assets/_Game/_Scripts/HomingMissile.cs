@@ -12,12 +12,9 @@ public class HomingMissile : Missile
 
     #region Unity Methods
 
-    private void Awake()
-    {
-        _Init();
-    }
     private void OnEnable()
     {
+        _Init();
         missileGraphic.SetActive(true);
         Invoke(nameof(AutoBlast), lifetime);
     }

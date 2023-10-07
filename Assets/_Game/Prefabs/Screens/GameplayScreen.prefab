@@ -3042,6 +3042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinsTxt: {fileID: 8054407435358484654}
+  _timerHandler: {fileID: 9125045400179944972}
 --- !u!1001 &2729846569169078435
 PrefabInstance:
   m_ObjectHideFlags: 0

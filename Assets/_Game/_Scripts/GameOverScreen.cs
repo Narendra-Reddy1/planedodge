@@ -13,6 +13,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void OnClickRestartBtn()
     {
+        ScreenManager.Instance.CloseAllScreens();
         ScreenManager.Instance.ChangeScreenWithBlinkEffect(Window.GameplayScreen);
     }
     public void OnClickHomeBtn()

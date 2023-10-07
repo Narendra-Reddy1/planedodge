@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
     #region Unity Methods
     private void Awake()
     {
-        if (Instance != null && Instance != this) Destroy(gameObject);
-        else
             Instance = this;
         _CalculateScreenBounds();
     }

@@ -29,18 +29,19 @@ public class MissilesSpawnManager : MonoBehaviour
     private Vector3 _corner1;
     private Vector3 _corner2;
     private Vector3 _corner3;
-    private void Awake()
-    {
-        _Init();
-        InvokeRepeating(nameof(_SpawnRandomMissile), 0, _missileSpawnInterval);
-    }
+    
     private void OnEnable()
     {
+        InvokeRepeating(nameof(_SpawnRandomMissile), 0, _missileSpawnInterval);
         GlobalEventHandler.AddListener(EventID.Event_On_Player_Dead, Callback_On_Player_Dead);
     }
     private void OnDisable()
     {
         GlobalEventHandler.RemoveListener(EventID.Event_On_Player_Dead, Callback_On_Player_Dead);
+    }
+    private void Start()
+    {
+        _Init();
     }
     private void _Init()
     {
