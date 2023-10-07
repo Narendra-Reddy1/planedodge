@@ -34,6 +34,14 @@ public class MissilesSpawnManager : MonoBehaviour
         _Init();
         InvokeRepeating(nameof(_SpawnRandomMissile), 0, _missileSpawnInterval);
     }
+    private void OnEnable()
+    {
+        GlobalEventHandler.AddListener(EventID.Event_On_Player_Dead, Callback_On_Player_Dead);
+    }
+    private void OnDisable()
+    {
+        GlobalEventHandler.RemoveListener(EventID.Event_On_Player_Dead, Callback_On_Player_Dead);
+    }
     private void _Init()
     {
         _camera = Camera.main;
@@ -83,7 +91,7 @@ public class MissilesSpawnManager : MonoBehaviour
         _leftMinBound = _camera.ScreenToWorldPoint(_corner0);
         _leftMaxBound = _camera.ScreenToWorldPoint(_corner1);
         Vector2 pose = new Vector2(_leftMinBound.x, Random.Range(_leftMinBound.y, _leftMaxBound.y));
-       // pose.x -= _missileSpawnOffset;
+        // pose.x -= _missileSpawnOffset;
         return pose;
     }
     private Vector2 _GetRandomPoseForDirectionalMissile()
@@ -103,5 +111,10 @@ public class MissilesSpawnManager : MonoBehaviour
             if (!_missilesPool[missileType][i].activeInHierarchy) return _missilesPool[missileType][i];
         }
         return _missilesPool[missileType][^1];
+    }
+
+    private void Callback_On_Player_Dead(object args)
+    {
+        CancelInvoke();
     }
 }

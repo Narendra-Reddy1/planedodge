@@ -19,6 +19,7 @@ public class PlaneController : MonoBehaviour
     private float _shieldLifeTime = 7f;
     private float _speedBoostTimer = 8f;
     private float _magnetTimer = 9f;
+    private bool _isPlayerDead = false;
     #endregion Varibales
 
     #region Unity Methods
@@ -46,8 +47,11 @@ public class PlaneController : MonoBehaviour
                 break;
             case Konstants.MISSILE_TAG:
                 Debug.Log($"Missile Hit!!!");
-                if (_isShieldActivated) break;
-                //Gameoveṛ
+                if (_isShieldActivated || _isPlayerDead) break;
+                _isPlayerDead = true;
+                collision.GetComponent<Missile>().AutoBlast();
+                GlobalEventHandler.TriggerEvent(EventID.Event_On_Player_Dead);
+                gameObject.SetActive(false);
                 break;
             case Konstants.SHIELD_TAG:
                 collision.gameObject.SetActive(false);

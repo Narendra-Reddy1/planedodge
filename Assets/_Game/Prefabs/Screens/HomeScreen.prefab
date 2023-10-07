@@ -141,7 +141,8 @@ GameObject:
   - component: {fileID: 3579650420784481545}
   - component: {fileID: 7503682336509972953}
   - component: {fileID: 8893613921035580418}
-  - component: {fileID: 558662600076206537}
+  - component: {fileID: 8997283282364030615}
+  - component: {fileID: 788873862889393660}
   m_Layer: 0
   m_Name: PlayBtn
   m_TagString: Untagged
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 7
---- !u!114 &558662600076206537
+--- !u!114 &8997283282364030615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3729953423737945787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e0412693d85de040ac92434121ee1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -251,7 +252,34 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8893613921035580418}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6333623364619989964}
+        m_TargetAssemblyTypeName: HomeScreen, Assembly-CSharp
+        m_MethodName: OnClickPlayBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  clickAnimate: 1
+--- !u!114 &788873862889393660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729953423737945787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25974c1872df0846ab397b7ae37c898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_button: {fileID: 8997283282364030615}
+  m_coolDownTimer: 0.75
 --- !u!1 &5074690105640269586
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5124436541353720715}
+  - component: {fileID: 6333623364619989964}
   m_Layer: 0
   m_Name: HomeScreen
   m_TagString: Untagged
@@ -285,6 +314,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6333623364619989964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074690105640269586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ef7a9eeba6f2a41bf5c10fc748c798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6470673835766132631
 GameObject:
   m_ObjectHideFlags: 0

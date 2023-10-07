@@ -18,7 +18,12 @@ public class HomingMissile : Missile
     }
     private void OnEnable()
     {
+        missileGraphic.SetActive(true);
         Invoke(nameof(AutoBlast), lifetime);
+    }
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
     private void LateUpdate()
     {
@@ -28,7 +33,7 @@ public class HomingMissile : Missile
     #endregion Unity Methods
 
     #region Public Methods
-   
+
     #endregion Public Methods
 
     #region Private Methods

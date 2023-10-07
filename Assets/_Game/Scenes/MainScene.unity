@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &26505375
 Transform:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
       Value: {fileID: 7531300728474677335, guid: 230d862406f3c294fa905edd8b9c692e, type: 3}
     - Key: 3
       Value: {fileID: 7838605193298355136, guid: f63b353fdc2e3aa44847498430a058b3, type: 3}
-  _loadingScreenCanvas: {fileID: 26505374}
+  _loadingScreenCanvas: {fileID: 880419345}
   _darkOverlay: {fileID: 880419347}
 --- !u!1 &733937059
 GameObject:
@@ -397,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &880419346
 RectTransform:
   m_ObjectHideFlags: 0

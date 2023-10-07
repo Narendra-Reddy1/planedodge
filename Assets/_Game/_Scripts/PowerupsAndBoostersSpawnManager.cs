@@ -18,7 +18,14 @@ public class PowerupsAndBoostersSpawnManager : MonoBehaviour
     #endregion Varibales
 
     #region Unity Methods
-    
+    private void OnEnable()
+    {
+        GlobalEventHandler.AddListener(EventID.Event_On_Player_Dead, Callback_On_Player_Dead);
+    }
+    private void OnDisable()
+    {
+        GlobalEventHandler.RemoveListener(EventID.Event_On_Player_Dead, Callback_On_Player_Dead);
+    }
     private void Start()
     {
         _Init();
@@ -104,6 +111,10 @@ public class PowerupsAndBoostersSpawnManager : MonoBehaviour
     #endregion Private Methods
 
     #region Callbacks
+    private void Callback_On_Player_Dead(object args)
+    {
+        CancelInvoke();
+    }
     #endregion Callbacks
 
     private enum PowerupType

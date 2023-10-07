@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DirectionalMissile : Missile
 {
-
     private Vector3 direction;
     private void OnEnable()
     {
         target = GameObject.FindGameObjectWithTag(Konstants.PLAYER_TAG).transform;
         Invoke(nameof(AutoBlast), lifetime);
-
+        missileGraphic.SetActive(true);
+        blastEffect.gameObject.SetActive(true);
         direction = transform.position - target.position;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -20,8 +20,7 @@ public class DirectionalMissile : Missile
     }
     private void Update()
     {
-
         transform.position -= direction.normalized * speed * Time.deltaTime;
     }
-
+   
 }
