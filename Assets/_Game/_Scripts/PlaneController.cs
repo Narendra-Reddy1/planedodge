@@ -42,6 +42,7 @@ public class PlaneController : MonoBehaviour
             case Konstants.COIN_TAG:
                 DOTween.Kill(collision.transform);
                 collision.gameObject.SetActive(false);
+                GlobalEventHandler.TriggerEvent(EventID.Event_On_Coin_Collected);
                 break;
             case Konstants.MISSILE_TAG:
                 Debug.Log($"Missile Hit!!!");

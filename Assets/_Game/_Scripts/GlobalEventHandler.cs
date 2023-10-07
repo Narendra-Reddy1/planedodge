@@ -76,4 +76,5 @@ public enum EventID
 {
     Event_On_Powerup_Collected,
     Event_On_New_Missile_Requested,
+    Event_On_Coin_Collected,
 }
