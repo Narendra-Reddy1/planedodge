@@ -87,8 +87,8 @@ public class PlaneController : MonoBehaviour
     private void _MovePlane()
     {
         Vector2 velocity = _transform.right * (_planeStats.DefaultSpeed);
-        Vector2 velocity1 = (_transform.right * _inputVector.x * _planeStats.Speed) +
-            (_isSpeedBoostActivated ? _transform.right * _planeStats.Speed : Vector2.zero);
+        Vector2 velocity1 = (_transform.right * (_inputVector.x > 0 ? _inputVector.x * _planeStats.Speed : 0)) +
+            (_isSpeedBoostActivated ? _transform.right * _planeStats.Speed * 0.25f : Vector2.zero);
         _planeRb.velocity = (velocity + velocity1) * Time.deltaTime;
         float dir = Vector2.Dot(_planeRb.velocity, _planeRb.GetRelativeVector(Vector2.right));
 
