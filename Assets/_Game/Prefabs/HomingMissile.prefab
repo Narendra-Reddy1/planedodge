@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
-  speed: 5.25
+  speed: 6.5
   target: {fileID: 0}
   missileGraphic: {fileID: 9152648749702793738}
   _collider: {fileID: 4541960142216038847}

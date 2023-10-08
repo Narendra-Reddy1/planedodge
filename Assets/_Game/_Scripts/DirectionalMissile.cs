@@ -9,7 +9,6 @@ public class DirectionalMissile : Missile
     {
         missileGraphic.SetActive(true);
         target = GameObject.FindGameObjectWithTag(Konstants.PLAYER_TAG).transform;
-        Invoke(nameof(AutoBlast), lifetime);
         direction = transform.position - target.position;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

@@ -17,6 +17,7 @@ public abstract class Missile : MonoBehaviour
     {
         missileGraphic.SetActive(true);
         _collider.enabled = true;
+        Invoke(nameof(AutoBlast), lifetime);
     }
     public virtual void AutoBlast()
     {

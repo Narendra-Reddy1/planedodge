@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
     private void _Init()
     {
         _bgmAudioSource.loop = true;
-        _bgmAudioSource.volume = .25f;
+        _bgmAudioSource.volume = .2f;
     }
     public void PlaySFX(AudioID audioID)
     {

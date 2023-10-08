@@ -41,6 +41,7 @@ public class PlaneController : MonoBehaviour
         {
             case Konstants.COIN_TAG:
                 DOTween.Kill(collision.transform);
+                AudioManager.instance.PlaySFX(AudioID.CoinCollectionSFX);
                 collision.gameObject.SetActive(false);
                 GlobalEventHandler.TriggerEvent(EventID.Event_On_Coin_Collected);
                 break;
@@ -60,8 +61,10 @@ public class PlaneController : MonoBehaviour
                 _shield.SetActive(true);
                 CancelInvoke(nameof(_DisableShield));
                 Invoke(nameof(_DisableShield), _shieldLifeTime);
+                AudioManager.instance.PlaySFX(AudioID.PowerupCollectionSFX);
                 break;
             case Konstants.SPEED_BOOST_TAG:
+                AudioManager.instance.PlaySFX(AudioID.PowerupCollectionSFX);
                 GlobalEventHandler.TriggerEvent(EventID.Event_On_Powerup_Collected);
                 collision.gameObject.SetActive(false);
                 _isSpeedBoostActivated = true;
@@ -69,6 +72,7 @@ public class PlaneController : MonoBehaviour
                 Invoke(nameof(_DisableSpeedBoost), _speedBoostTimer);
                 break;
             case Konstants.MAGNET_POWERUP_TAG:
+                AudioManager.instance.PlaySFX(AudioID.PowerupCollectionSFX);
                 GlobalEventHandler.TriggerEvent(EventID.Event_On_Powerup_Collected);
                 collision.gameObject.SetActive(false);
                 _isMagnetActivated = true;
@@ -88,7 +92,7 @@ public class PlaneController : MonoBehaviour
     {
         Vector2 velocity = _transform.right * (_planeStats.DefaultSpeed);
         Vector2 velocity1 = (_transform.right * (_inputVector.x > 0 ? _inputVector.x * _planeStats.Speed : 0)) +
-            (_isSpeedBoostActivated ? _transform.right * _planeStats.Speed * 0.25f : Vector2.zero);
+            (_isSpeedBoostActivated ? _transform.right * _planeStats.Speed * 0.75f : Vector2.zero);
         _planeRb.velocity = (velocity + velocity1) * Time.deltaTime;
         float dir = Vector2.Dot(_planeRb.velocity, _planeRb.GetRelativeVector(Vector2.right));
 
