@@ -9,23 +9,13 @@ namespace PlaneDodge
     {
 
         #region Varibales
-        #endregion Varibales
-
-        #region Unity Methods
-        #endregion Unity Methods
-
-        #region Public Methods
-        #endregion Public Methods
-
-        #region Private Methods
-        #endregion Private Methods
-
-        #region Callbacks
-        #endregion Callbacks
         [SerializeField] private List<Transform> _points;
         [SerializeField] private GameObject _coinPrefab;
         [SerializeField] private Transform _coinsParent;
         private List<GameObject> _coinsPool = new List<GameObject>();
+        #endregion Varibales
+
+        #region Unity Methods
 
 #if UNITY_EDITOR
         [SerializeField] private float _sphereRadius = .2f;
@@ -50,6 +40,13 @@ namespace PlaneDodge
         {
             _ActivateCoins();
         }
+        #endregion Unity Methods
+
+        #region Public Methods
+        #endregion Public Methods
+
+        #region Private Methods
+
         private void _SpawnCoinsAtPointPose()
         {
             foreach (Transform point in _points)
@@ -67,5 +64,11 @@ namespace PlaneDodge
                 _coinsPool[i].SetActive(true);
             }
         }
+        #endregion Private Methods
+
+        #region Callbacks
+        #endregion Callbacks
+
+
     }
 }

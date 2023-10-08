@@ -10,7 +10,7 @@ public class CoinsSpawnManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> _coinsSplinePrefabs;
     private Transform _playerTransform;
-    private float _intervalToSpawnCoins = 5f;
+    private float _intervalToSpawnCoins = 8f;
     private Vector3 _minBound;
     private Vector3 _maxBound;
     [SerializeField] private float _offsetDistanceToThePlayer = 75f;//Xposition Offset.
@@ -34,16 +34,18 @@ public class CoinsSpawnManager : MonoBehaviour
         _maxBound = GameManager.Instance.MaxBound;
         InvokeRepeating(nameof(_SpawnCoins), 1, _intervalToSpawnCoins);
     }
-
+    int index = 0;
     private void _SpawnCoins()
     {
         Vector2 currentPlayerPose = _playerTransform.position;
         currentPlayerPose.x += _offsetDistanceToThePlayer;//new offset pose for coins to spawn.
         currentPlayerPose.y = Random.Range(_minBound.y + 2, _maxBound.y - 2);
-        GameObject splineObj = _coinsSplinePrefabs[Random.Range(0, _coinsSplinePrefabs.Count)];
+        GameObject splineObj = _coinsSplinePrefabs[index];
         splineObj.SetActive(false);
         splineObj.transform.position = currentPlayerPose;
         splineObj.SetActive(true);
+        index++;
+        if (index >= _coinsSplinePrefabs.Count) index = 0;
     }
 
 

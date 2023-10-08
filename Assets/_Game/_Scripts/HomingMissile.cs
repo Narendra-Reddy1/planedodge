@@ -15,12 +15,6 @@ public class HomingMissile : Missile
     private void OnEnable()
     {
         _Init();
-        missileGraphic.SetActive(true);
-        Invoke(nameof(AutoBlast), lifetime);
-    }
-    private void OnDisable()
-    {
-        CancelInvoke();
     }
     private void LateUpdate()
     {

@@ -29,7 +29,7 @@ public class MissilesSpawnManager : MonoBehaviour
     private Vector3 _corner1;
     private Vector3 _corner2;
     private Vector3 _corner3;
-    
+
     private void OnEnable()
     {
         InvokeRepeating(nameof(_SpawnRandomMissile), 0, _missileSpawnInterval);
@@ -83,6 +83,7 @@ public class MissilesSpawnManager : MonoBehaviour
                 //missile.transform.rotation = Quaternion.Euler(missile.transform.rotation.eulerAngles.x, missile.transform.rotation.eulerAngles.y, Random.Range(-20, 20));
                 break;
         }
+        missile.GetComponent<Missile>().ActivateMissile();
         missile.SetActive(true);
 
     }

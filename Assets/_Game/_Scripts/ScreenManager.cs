@@ -45,7 +45,13 @@ namespace PlaneDodge.ScreenManagement
             {
                 CloseAllScreens();
             }
+            if (_screenStack.Contains(window))
+            {
+                Debug.LogError($"Trying to same Active screen!!! {window}");
+                return null;
+            }
             GameObject screen = _screens[window];
+
             GameObject spawnedScreen = Instantiate(screen, isUiObject ? _uiParent : transform);
             spawnedScreen.transform.SetAsLastSibling();
             if (!_dynamicScreens.ContainsKey(window))
@@ -54,6 +60,7 @@ namespace PlaneDodge.ScreenManagement
             }
             else
                 _dynamicScreens[window] = spawnedScreen;
+
             _previousScreen = _currentScreen;
             _currentScreen = window;
             if (screenType == ScreenType.Additive)
@@ -69,9 +76,13 @@ namespace PlaneDodge.ScreenManagement
                 {
                     Destroy(go);
                     _dynamicScreens.Remove(window);
+                    if (_screenStack.Peek() == (window))
+                        _screenStack.Pop();
 
                 }
             }
+
+
         }
         public void CloseAllScreens()
         {
@@ -110,6 +121,7 @@ namespace PlaneDodge.ScreenManagement
         HomeScreen,
         GameplayScreen,
         GameOverScreen,
+        SettingsScreen,
     }
     public enum ScreenType
     {

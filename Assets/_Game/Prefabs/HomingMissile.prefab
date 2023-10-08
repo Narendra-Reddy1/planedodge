@@ -51,6 +51,7 @@ MonoBehaviour:
   speed: 5.25
   target: {fileID: 0}
   missileGraphic: {fileID: 9152648749702793738}
+  _collider: {fileID: 4541960142216038847}
   blastEffect: {fileID: 6027656834379698198}
 --- !u!70 &4541960142216038847
 CapsuleCollider2D:

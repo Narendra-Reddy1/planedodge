@@ -23,6 +23,9 @@ public class GameOverScreen : MonoBehaviour
 
     private void _UpdateScore()
     {
-        _scoreTxt.SetText(InGameUiManager.Instance.GetTotalTime().ToString());
+        int score = InGameUiManager.Instance.GetTotalTime() * Konstants.SCORE_MULTIPLIER;//per second 10 points
+        if (score > PlayerPrefs.GetInt(Konstants.HIGHEST_SCORE, 0))
+            PlayerPrefs.SetInt(Konstants.HIGHEST_SCORE, score);
+        _scoreTxt.SetText(score.ToString());
     }
 }

@@ -13,4 +13,9 @@ public class Konstants
     public const string INIT_SCENE = "InitScene";
     public const string MAIN_SCENE = "MainScene";
 
+    //PlayerPrefs:: enum can be used
+    public const string HIGHEST_SCORE = "HighestScore";
+
+    //Score:
+    public const byte SCORE_MULTIPLIER = 10;
 }

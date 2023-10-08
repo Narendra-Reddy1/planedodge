@@ -29,8 +29,7 @@ public class PlaneController : MonoBehaviour
     }
     private void Update()
     {
-        _inputVector.x = Input.GetAxisRaw("Horizontal");
-        _inputVector.y = Input.GetAxisRaw("Vertical");
+        _inputVector = InputManager.Instance.InputVector;
         _MovePlane();
         if (_isMagnetActivated)
             _AttractCoins();
@@ -58,19 +57,22 @@ public class PlaneController : MonoBehaviour
                 GlobalEventHandler.TriggerEvent(EventID.Event_On_Powerup_Collected);
                 _isShieldActivated = true;
                 _shield.SetActive(true);
+                CancelInvoke(nameof(_DisableShield));
                 Invoke(nameof(_DisableShield), _shieldLifeTime);
                 break;
             case Konstants.SPEED_BOOST_TAG:
                 GlobalEventHandler.TriggerEvent(EventID.Event_On_Powerup_Collected);
                 collision.gameObject.SetActive(false);
                 _isSpeedBoostActivated = true;
+                CancelInvoke(nameof(_DisableSpeedBoost));
                 Invoke(nameof(_DisableSpeedBoost), _speedBoostTimer);
                 break;
             case Konstants.MAGNET_POWERUP_TAG:
                 GlobalEventHandler.TriggerEvent(EventID.Event_On_Powerup_Collected);
                 collision.gameObject.SetActive(false);
                 _isMagnetActivated = true;
-                Invoke(nameof(_DisbleMagnetPowerup), _magnetTimer);
+                CancelInvoke(nameof(_DisableMagnetPowerup));
+                Invoke(nameof(_DisableMagnetPowerup), _magnetTimer);
                 break;
         }
     }
@@ -85,7 +87,7 @@ public class PlaneController : MonoBehaviour
     {
         Vector2 velocity = _transform.right * (_planeStats.DefaultSpeed);
         Vector2 velocity1 = (_transform.right * _inputVector.x * _planeStats.Speed) +
-            (_isSpeedBoostActivated ? _transform.right * _planeStats.Speed * 1.5f : Vector2.zero);
+            (_isSpeedBoostActivated ? _transform.right * _planeStats.Speed : Vector2.zero);
         _planeRb.velocity = (velocity + velocity1) * Time.deltaTime;
         float dir = Vector2.Dot(_planeRb.velocity, _planeRb.GetRelativeVector(Vector2.right));
 
@@ -106,7 +108,7 @@ public class PlaneController : MonoBehaviour
             hit.transform.DOMove(_transform.position, .5f);
         }
     }
-    private void _DisbleMagnetPowerup()
+    private void _DisableMagnetPowerup()
     {
         _isMagnetActivated = false;
     }
