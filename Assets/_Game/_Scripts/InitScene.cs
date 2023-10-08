@@ -21,6 +21,7 @@ public class InitScene : MonoBehaviour
 
                     handle1.completed += _ =>
                     {
+                        AudioManager.instance.PlayBGM(AudioID.MainBGM);
                         ScreenManager.Instance.ChangeScreen(Window.HomeScreen);
                         SceneManager.UnloadSceneAsync(Konstants.INIT_SCENE);
                     };

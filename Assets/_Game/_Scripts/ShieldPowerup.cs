@@ -8,6 +8,7 @@ public class ShieldPowerup : MonoBehaviour
     {
         if (collision.CompareTag(Konstants.MISSILE_TAG))
         {
+            AudioManager.instance.PlaySFX(AudioID.MissileBlastSFX);
             collision.GetComponent<Missile>().AutoBlast();
         }
     }

@@ -48,6 +48,7 @@ public class PlaneController : MonoBehaviour
                 Debug.Log($"Missile Hit!!!");
                 if (_isShieldActivated || _isPlayerDead) break;
                 _isPlayerDead = true;
+                AudioManager.instance.PlaySFX(AudioID.MissileBlastSFX);
                 collision.GetComponent<Missile>().AutoBlast();
                 GlobalEventHandler.TriggerEvent(EventID.Event_On_Player_Dead);
                 gameObject.SetActive(false);
